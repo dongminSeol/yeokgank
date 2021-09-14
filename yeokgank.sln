@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yeokgank.Repository", "yeok
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yeokgank.ViewModel", "yeokgank.ViewModel\yeokgank.ViewModel.csproj", "{31554DFC-D7E1-4ED5-8A34-09515AC389B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yeokgank.Entities", "yeokgank.Entities\yeokgank.Entities.csproj", "{C816569D-D2FB-4352-84BF-8202107CA4B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yeokgank.Entities", "yeokgank.Entities\yeokgank.Entities.csproj", "{C816569D-D2FB-4352-84BF-8202107CA4B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database_Script", "Database_Script", "{79B2541A-ECDC-43DF-9260-C872DE38C500}"
+	ProjectSection(SolutionItems) = preProject
+		ServiceDB.sql = ServiceDB.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
