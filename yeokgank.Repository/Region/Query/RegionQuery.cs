@@ -18,22 +18,23 @@ namespace yeokgank.Repository.Region.Query
             _configuration = configuration;
         }
 
-        #region [2021-08-30] SP 작성 중
-        //public List<RegionViewModel> List(string search = "", string orderBy = "", int? pageNumber = 1, int pageSize = 10)
-        //{
-        //    using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DatabaseConnection")))
-        //    {
-        //        var para = new DynamicParameters();
-        //        para.Add("@orderBy", orderBy);
-        //        para.Add("@PageNumber", pageNumber);
-        //        para.Add("@PageSize", pageSize);
-        //        para.Add("@Search", search);
-        //        var data = con.Query<RegionViewModel>("Usp_RegionPagination", para, commandType: CommandType.StoredProcedure).ToList();
-        //        return data;
-        //    }
-        //}
-        #endregion
+        public List<RegionViewModel> List(string search = "", int? pageNumber = 1, int pageSize = 10)
+        {
+            using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DatabaseConnection")))
+            {
+                var param = new DynamicParameters();
 
+                param.Add("@PageNumber", pageNumber);
+                param.Add("@PageSize", pageSize);
+                param.Add("@TotalCnt", DbType.Int32, direction: ParameterDirection.Output);
+
+                var data = con.Query<RegionViewModel>("SP_Read_RegionCode", param, commandType: CommandType.StoredProcedure).ToList();
+
+                return data;
+            }
+        }
+
+        #region [2021-08-30] 수정 중
         public List<RegionViewModel> List(string search = "", string orderBy = "", int? pageNumber = 1, int pageSize = 10)
         {
             using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DatabaseConnection")))
@@ -48,5 +49,6 @@ namespace yeokgank.Repository.Region.Query
                 return data;
             }
         }
+        #endregion
     }
 }

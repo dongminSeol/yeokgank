@@ -21,7 +21,8 @@ namespace yeokgank.Controllers
 
         public dynamic Get()
         {
-            var data = _regionQuery.List();
+            
+            var data = _regionQuery.List(search: "", pageNumber: 1, pageSize: 10);
 
             //_logger.LogInformation();
             //_logger.LogDebug(JsonResult)
