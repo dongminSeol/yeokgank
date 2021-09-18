@@ -8,26 +8,27 @@ using yeokgank.Repository.Region.Query;
 namespace yeokgank.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]/[action]"), Produces("application/json")]
     public class RegionController : ControllerBase
     {
         private readonly IRegionQuery _regionQuery;
         private readonly ILogger<RegionController> _logger;
-        public RegionController(ILogger<RegionController> logger, IRegionQuery regionQuery) 
+        public RegionController(ILogger<RegionController> logger, IRegionQuery regionQuery)
         {
             _logger = logger;
             _regionQuery = regionQuery;
         }
 
-        public dynamic Get()
+        [HttpGet]
+        public IActionResult List(string h_cd, string m_cd, string s_cd, string t_cd, int? page = 1 ,int? size = 10)
         {
-            
-            var data = _regionQuery.List(search: "", pageNumber: 1, pageSize: 10);
+             
+            var data = _regionQuery.List(h_cd, m_cd, s_cd, t_cd, page, size);
 
             //_logger.LogInformation();
             //_logger.LogDebug(JsonResult)
 
-            return data;
+            return Ok(data);
         }
     }
 }

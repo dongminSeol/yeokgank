@@ -41,14 +41,7 @@ namespace yeokgank.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             }).ToArray();
 
-            var map = _regionQuery.List(search:"", pageNumber : 1,pageSize:10);
-
-            //return new
-            //{
-            //    weathersArray = weathers,
-            //    mapList = map
-            //};
-
+      
             return weathers;
 
 

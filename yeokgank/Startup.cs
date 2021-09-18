@@ -39,8 +39,13 @@ namespace yeokgank
             //});
 
             services.AddControllersWithViews();
+            services.Configure<ApiBehaviorOptions>(options => {
+                options.SuppressConsumesConstraintForFormFileParameters = true;
+                options.SuppressInferBindingSourcesForParameters = true;
+                options.SuppressModelStateInvalidFilter = true;
+            });
 
-            // In production, the React files will be served from this directory
+            //In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
@@ -63,7 +68,7 @@ namespace yeokgank
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            //app.UseSpaStaticFiles();
 
             app.UseRouting();
 

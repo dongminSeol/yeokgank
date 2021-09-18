@@ -5,7 +5,6 @@ namespace yeokgank.Repository.Region.Query
 {
     public interface IRegionQuery
     {
-        List<RegionViewModel> List(string search = "", string orderBy = "", int? pageNumber = 1, int pageSize = 10);
-        List<RegionViewModel> List(string search = "", int? pageNumber = 1, int pageSize = 10);
+        RegionViewModel List(string ad_h_cd, string ad_m_cd, string ad_s_cd, string ad_t_cd, int? page = 1, int? pagesize = 10);
     }
 }
