@@ -45,7 +45,8 @@ namespace yeokgank
                 options.SuppressModelStateInvalidFilter = true;
             });
 
-            //In production, the React files will be served from this directory
+            ///[테스트 주석]
+            // 프로덕션에서 React 파일은 이 디렉토리에서 제공됩니다.
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
@@ -79,6 +80,7 @@ namespace yeokgank
                     pattern: "{controller}/{action=Index}/{id?}");
             });
 
+            ///[테스트 주석]
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";

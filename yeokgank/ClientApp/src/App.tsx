@@ -16,7 +16,7 @@ export default () => (
         <Route exact path='/' component={Home} />
         <Route path='/counter' component={Counter} />
         <Route path='/apt' component={Apt} />
-        <Route path='/region-data/:startDateIndex?' component={Region} />
+        <Route path='/region-data/:pageIndex?' component={Region} />
         <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
     </Layout>
 );
