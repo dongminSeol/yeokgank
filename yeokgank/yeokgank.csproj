@@ -23,7 +23,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\actions\index.ts" />
+    <None Remove="ClientApp\src\actions\tap-actions.ts" />
+    <None Remove="ClientApp\src\actions\types.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\yeokgank.Repository\yeokgank.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\actions\index.ts" />
+    <TypeScriptCompile Include="ClientApp\src\actions\tap-actions.ts" />
+    <TypeScriptCompile Include="ClientApp\src\actions\types.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

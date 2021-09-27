@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Dapper;
@@ -20,31 +21,38 @@ namespace yeokgank.Repository.Region.Query
 
         public RegionViewModel List(string ad_h_cd, string ad_m_cd ,string ad_s_cd, string ad_t_cd , int? page = 1, int? pagesize = 10)
         {
-            using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DatabaseConnection")))
+            try
             {
-                var param = new DynamicParameters();
-
-                param.Add("@AD_H_CD", ad_h_cd);
-                param.Add("@AD_M_CD", ad_m_cd);
-                param.Add("@AD_S_CD", ad_s_cd);
-                param.Add("@AD_T_CD", ad_t_cd);
-                param.Add("@PageNumber", page);
-                param.Add("@PageSize", pagesize);
-                param.Add("@TotalCnt", DbType.Int32, direction: ParameterDirection.Output);
-
-                var region = con.Query<RegionModel>("SP_Read_RegionCode", param, commandType: CommandType.StoredProcedure).ToList();
-
-
-                return new RegionViewModel
+                using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DatabaseConnection")))
                 {
-                    Region = region,
-                    PagingInfo = new PagingInfo 
+                    var param = new DynamicParameters();
+
+                    param.Add("@AD_H_CD", ad_h_cd);
+                    param.Add("@AD_M_CD", ad_m_cd);
+                    param.Add("@AD_S_CD", ad_s_cd);
+                    param.Add("@AD_T_CD", ad_t_cd);
+                    param.Add("@PageNumber", page);
+                    param.Add("@PageSize", pagesize);
+                    param.Add("@TotalCnt", DbType.Int32, direction: ParameterDirection.Output);
+
+                    var region = con.Query<RegionModel>("SP_Read_RegionCode", param, commandType: CommandType.StoredProcedure).ToList();
+
+
+                    return new RegionViewModel
                     {
-                        CurrentPage = (int)page,
-                        ItemsPerPage = (int)pagesize,
-                        TotalItems = param.Get<int>("TotalCnt")
-                    }
-                };
+                        Region = region,
+                        PagingInfo = new PagingInfo
+                        {
+                            CurrentPage = (int)page,
+                            ItemsPerPage = (int)pagesize,
+                            TotalItems = param.Get<int>("TotalCnt")
+                        }
+                    };
+                }
+            }
+            catch(Exception)
+            {
+                throw;
             }
         }
     }

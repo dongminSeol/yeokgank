@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yeokgank.ViewModel", "yeokg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yeokgank.Entities", "yeokgank.Entities\yeokgank.Entities.csproj", "{C816569D-D2FB-4352-84BF-8202107CA4B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yeokgank.DataScheduler", "yeokgank.DataScheduler\yeokgank.DataScheduler.csproj", "{499B0910-1FBE-43DD-A3F0-3ECF0204D9E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C816569D-D2FB-4352-84BF-8202107CA4B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C816569D-D2FB-4352-84BF-8202107CA4B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C816569D-D2FB-4352-84BF-8202107CA4B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{499B0910-1FBE-43DD-A3F0-3ECF0204D9E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{499B0910-1FBE-43DD-A3F0-3ECF0204D9E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{499B0910-1FBE-43DD-A3F0-3ECF0204D9E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{499B0910-1FBE-43DD-A3F0-3ECF0204D9E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

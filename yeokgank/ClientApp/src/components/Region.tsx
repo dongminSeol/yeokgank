@@ -28,7 +28,7 @@ class RegionData extends React.PureComponent<RegionProps> {
             <React.Fragment>
                 <h1 id="tabelLabel">시,군,구 정보</h1>
                 <p>좌표 정보</p>
-                {this.renderForecastsTable()}
+                {this.renderRegionTable()}
                 {this.renderPagination()}
             </React.Fragment>
         );
@@ -40,7 +40,13 @@ class RegionData extends React.PureComponent<RegionProps> {
         this.props.requestRegionCode(pageIndex);
     }
 
-    private renderForecastsTable() {
+    private editCode(id: number, name: string, email: string){
+        //this.props.setUserToBeEdited(id, name, email);
+        //this.props.changeTab("editUser");
+    };
+
+
+    private renderRegionTable() {
         return (
             <table className='table table-striped' aria-labelledby="tabelLabel">
                 <thead>
@@ -49,6 +55,8 @@ class RegionData extends React.PureComponent<RegionProps> {
                         <th>Lng</th>
                         <th>RegionCode</th>
                         <th>Address</th>
+                        <th>수정</th>
+                        <th>삭제</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -58,6 +66,9 @@ class RegionData extends React.PureComponent<RegionProps> {
                             <td>{region.lng}</td>
                             <td>{region.regionCode}</td>
                             <td>{region.address}</td>
+                            <td>
+                                <button onClick={ ()=> { this.editCode(0, "", "") }} />
+                            </td>
                         </tr>
                     )}
                 </tbody>
@@ -71,9 +82,9 @@ class RegionData extends React.PureComponent<RegionProps> {
 
         return (
             <div className="d-flex justify-content-between">
-                {prevpageIndex != 0 && <Link className='btn btn-outline-secondary btn-sm' to={`/region-data/${prevpageIndex}`}>Previous</Link>}
+                {prevpageIndex != 0 && <Link className='btn btn-outline-secondary btn-sm' to={`/region-data/${prevpageIndex}`}>이전</Link>}
                 {this.props.isLoading && <span>Loading...</span>}
-                <Link className='btn btn-outline-secondary btn-sm' to={`/region-data/${nextpageIndex}`}>Next</Link>
+                <Link className='btn btn-outline-secondary btn-sm' to={`/region-data/${nextpageIndex}`}>다음</Link>
             </div>
         );
     }

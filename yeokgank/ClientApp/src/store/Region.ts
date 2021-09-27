@@ -1,6 +1,6 @@
 import { Action, Reducer } from 'redux';
 import { AppThunkAction } from '.';
-import Region from '../components/Region';
+
 
 export interface RegionState {
     isLoading: boolean;
@@ -42,6 +42,8 @@ interface ReceiveRegionAction {
     pageIndex: number;
     regions: RegionDataList;
 }
+
+
 
 type KnownAction = RequestRegionAction | ReceiveRegionAction;
 
