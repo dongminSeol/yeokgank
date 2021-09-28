@@ -11,25 +11,31 @@ namespace yeokgank.DataScheduler
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("[Apartment-GetTrade]");
 
-            // 오전 9:00에 시작하여 1 초마다 호출됩니다.
-            //IntervalInSeconds(13, 11, 1,
+            // 간격(Seconds) 
+            // 오전 9:00에 시작하여 5 초마다 호출됩니다.
+            //IntervalInSeconds(10, 3, 5,
             //() =>
             //{
-            //    Console.WriteLine($"간격(초)-{DateTime.Now.ToString("HHmmss")}");
+            //    Console.WriteLine($"간격(초)-{DateTime.Now.ToString("ss")}");
+            //    Apartment.GetTrade();
             //});
 
-            //string url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev";
-            //url += "?ServiceKey=yYJxEdMlDi5LRTMt6bIVZHIlAlpETrET/9MxDD+Q5EQRpWiY0VT1LKsYi7TsKOIydh/BuMZpWM3ZG0ZJWmr34g==";
-            //url += "&pageNo=1";
-            //url += "&numOfRows=10";
-            //url += "&LAWD_CD=11110";
-            //url += "&DEAL_YMD=201812";
+            var apt = new Apartment(11110,-1,100);
+            apt.GetTrade();
 
-            //var http = new HttpConnecter(url);
-            //var result = http.Get();
-            //Console.WriteLine(result);
+
+
+
+            // 간격(Days) 
+            // 오전 9:00 에 시작되며 1 일마다 호출됩니다.
+            //IntervalInDays(9, 0, 1,
+            //() =>
+            //{
+            //    Console.WriteLine($"간격(날짜)-{DateTime.Now.ToString("HHmmss")}");
+            //    Apartment.GetTrade();
+            //});
 
             Console.ReadLine();
 

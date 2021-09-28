@@ -12,9 +12,9 @@ namespace yeokgank.DataScheduler.Http
 
         private readonly RestClient restClient;
 
-        public HttpConnecter(string requestUri)
+        public HttpConnecter(string url)
         {
-            restClient = new RestClient(requestUri);
+            restClient = new RestClient(url);
         }
 
         private void SetHeader(ref RestRequest request, string headerKey, string headerValue)
@@ -52,26 +52,38 @@ namespace yeokgank.DataScheduler.Http
                 return null;
             }
         }
-
-        public string Get(string endPoint)
+        public T Get<T>()
         {
             try
             {
-                RestRequest request = new RestRequest(endPoint, Method.GET);
-                //SetHeader(ref request, restClient.BuildUri(request).AbsolutePath);
+                RestRequest request = new RestRequest(Method.GET);
                 var response = restClient.Execute(request);
-                if (response.StatusCode != HttpStatusCode.OK) throw new HttpException("Http request error.") { HttpCode = response.StatusCode };
-                return response.Content;
+                var code = response.StatusCode;
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new HttpException("Http request error.")
+                    {
+                        HttpCode = response.StatusCode
+                    };
+                }
+                else
+                {
+                    return JsonConvert.DeserializeObject<T>(response.Content); ;
+                }
+
             }
             catch (HttpException e)
             {
                 if (e.HttpCode == HttpStatusCode.RequestTimeout)
                 {
                 }
-                //Log(" HttpCode :: " + e.HttpCode + " :: " + e.ToString(), "FailLog", logPath);
-                return null;
+
+                //Log("HttpStatusCode :: " + e.HttpCode + " Message :: " + e.Message.ToString());
+                return default(T);
             }
         }
+
+
 
         public string Post(string endPoint, object requestParameters)
         {
