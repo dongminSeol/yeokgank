@@ -1,6 +1,9 @@
-﻿using System;
-using yeokgank.DataScheduler.Http;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using yeokgank.DataScheduler.Model;
 using yeokgank.DataScheduler.Services;
+
 
 namespace yeokgank.DataScheduler
 {
@@ -13,33 +16,18 @@ namespace yeokgank.DataScheduler
         {
             Console.WriteLine("[Apartment-GetTrade]");
 
-            // 간격(Seconds) 
-            // 오전 9:00에 시작하여 5 초마다 호출됩니다.
-            //IntervalInSeconds(10, 3, 5,
-            //() =>
-            //{
-            //    Console.WriteLine($"간격(초)-{DateTime.Now.ToString("ss")}");
-            //    Apartment.GetTrade();
-            //});
-
-            var apt = new Apartment(11110,-1,100);
+            var apt = new Apartment();
+            apt.Settings.ServiceKey = "yYJxEdMlDi5LRTMt6bIVZHIlAlpETrET%2F9MxDD%2BQ5EQRpWiY0VT1LKsYi7TsKOIydh%2FBuMZpWM3ZG0ZJWmr34g%3D%3D";
+            apt.Settings.PageNo = 1;
+            apt.Settings.Rows = 1000;
+            apt.Settings.StartDate = "202101";
+            apt.Settings.EndDate = "202110";
             apt.GetTrade();
-
-
-
-
-            // 간격(Days) 
-            // 오전 9:00 에 시작되며 1 일마다 호출됩니다.
-            //IntervalInDays(9, 0, 1,
-            //() =>
-            //{
-            //    Console.WriteLine($"간격(날짜)-{DateTime.Now.ToString("HHmmss")}");
-            //    Apartment.GetTrade();
-            //});
 
             Console.ReadLine();
 
         }
+   
         /// <summary>
         /// 간격 (초) 
         /// </summary>

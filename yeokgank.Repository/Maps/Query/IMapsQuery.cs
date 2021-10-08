@@ -8,7 +8,7 @@ namespace yeokgank.Repository.Maps.Query
 {
     public interface IMapsQuery
     {
-        List<MapsViewModel> List(string search ="", string orderBy= "", int? pageNumber = 1, int pageSize = 10);
+        List<MapsViewModel> List(string search ="");
 
     }
 }

@@ -17,30 +17,13 @@ namespace yeokgank.Repository.Maps.Query
             _configuration = configuration;
         }
 
-        public List<MapsViewModel> List(string search ="", string orderBy = "", int? pageNumber = 1, int pageSize = 10)
+        public List<MapsViewModel> List(string search ="")
         {
             using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DatabaseConnection")))
             {
                 var para = new DynamicParameters();
-                para.Add("@orderBy", orderBy);
-                para.Add("@PageNumber", pageNumber);
-                para.Add("@PageSize", pageSize);
-                para.Add("@Search", search);
-                var data = con.Query<MapsViewModel>("Usp_CustomerPagination", para, commandType: CommandType.StoredProcedure).ToList();
-
-                return data;
-            }
-        }
-        public List<MapsViewModel> RegionList(string search = "", string orderBy = "", int? pageNumber = 1, int pageSize = 10)
-        {
-            using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DatabaseConnection")))
-            {
-                var para = new DynamicParameters();
-                para.Add("@orderBy", orderBy);
-                para.Add("@PageNumber", pageNumber);
-                para.Add("@PageSize", pageSize);
-                para.Add("@Search", search);
-                var data = con.Query<MapsViewModel>("Usp_CustomerPagination", para, commandType: CommandType.StoredProcedure).ToList();
+                para.Add("@", search);
+                var data = con.Query<MapsViewModel>("", para, commandType: CommandType.StoredProcedure).ToList();
 
                 return data;
             }

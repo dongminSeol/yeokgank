@@ -68,7 +68,9 @@ namespace yeokgank.DataScheduler.Http
                 }
                 else
                 {
-                    return JsonConvert.DeserializeObject<T>(response.Content); ;
+                    return JsonConvert.DeserializeObject<T>(response.Content,new JsonSerializerSettings { 
+                       MissingMemberHandling = MissingMemberHandling.Ignore
+                    });
                 }
 
             }
