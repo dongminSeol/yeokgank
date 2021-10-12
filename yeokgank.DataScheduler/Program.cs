@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using yeokgank.DataScheduler.Model;
+﻿using System;
 using yeokgank.DataScheduler.Services;
 
 
@@ -20,9 +17,12 @@ namespace yeokgank.DataScheduler
             apt.Settings.ServiceKey = "yYJxEdMlDi5LRTMt6bIVZHIlAlpETrET%2F9MxDD%2BQ5EQRpWiY0VT1LKsYi7TsKOIydh%2FBuMZpWM3ZG0ZJWmr34g%3D%3D";
             apt.Settings.PageNo = 1;
             apt.Settings.Rows = 1000;
+            ///조회 시작 yyyyMM
             apt.Settings.StartDate = "202101";
+            ///조회 끝   yyyyMM
             apt.Settings.EndDate = "202110";
             apt.GetTrade();
+            Console.WriteLine($" {apt.Settings.StartDate} ~ {apt.Settings.EndDate} 실거래 상세 자료 수집 처리 카운트 : {apt.Volume}");
 
             Console.ReadLine();
 
