@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using yeokgank.Repository.Region.Query;
 namespace yeokgank.Controllers
 {
@@ -11,8 +7,8 @@ namespace yeokgank.Controllers
     [Route("api/[controller]/[action]"), Produces("application/json")]
     public class RegionController : ControllerBase
     {
-        private readonly IRegionQuery _regionQuery;
         private readonly ILogger<RegionController> _logger;
+        private readonly IRegionQuery _regionQuery;
         public RegionController(ILogger<RegionController> logger, IRegionQuery regionQuery)
         {
             _logger = logger;

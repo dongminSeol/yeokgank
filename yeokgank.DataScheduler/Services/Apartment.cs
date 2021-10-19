@@ -45,22 +45,16 @@ namespace yeokgank.DataScheduler.Services
                                   group r by new
                                   {
                                       r.AD_H_CD
-                                     ,
-                                      r.AD_M_CD
-                                     ,
-                                      r.AD_H_NM
-                                     ,
-                                      r.AD_M_NM
+                                     ,r.AD_M_CD
+                                     ,r.AD_H_NM
+                                     ,r.AD_M_NM
                                   } into g
                                   select new RegionCode()
                                   {
-                                      AD_H_CD = g.Key.AD_H_CD
-                                    ,
-                                      AD_M_CD = g.Key.AD_M_CD
-                                    ,
-                                      AD_H_NM = g.Key.AD_H_NM
-                                    ,
-                                      AD_M_NM = g.Key.AD_M_NM
+                                     AD_H_CD = g.Key.AD_H_CD
+                                    ,AD_M_CD = g.Key.AD_M_CD
+                                    ,AD_H_NM = g.Key.AD_H_NM
+                                    ,AD_M_NM = g.Key.AD_M_NM
                                   }).ToList();
                     return region;
 

@@ -1,8 +1,8 @@
 ﻿using yeokgank.ViewModel.Apartment;
 namespace yeokgank.Repository.Apartment.Query
 {
-    interface IApartmentQuery
+    public interface IApartmentQuery
     {
-        ApartmentTradeViewModel Trade(string search = "", int? page = 1, int pagesize = 10);
+        ApartmentTradeViewModel TradeMonth(string ad_h_cd, string ad_m_cd, string startdate, string enddate);
     }
 }
