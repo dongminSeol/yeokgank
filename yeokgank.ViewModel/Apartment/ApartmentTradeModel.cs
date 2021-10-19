@@ -29,5 +29,9 @@ namespace yeokgank.ViewModel.Apartment
         public string AreaforExclusiveUse { get; set; }
         public string RegionalCode { get; set; }
         public string Floor { get; set; }
+
+        public string DealDate { get; set; }
+        public long Cnt { get; set; }
+
     }
 }
