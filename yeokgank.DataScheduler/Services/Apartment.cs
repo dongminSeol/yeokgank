@@ -211,7 +211,7 @@ namespace yeokgank.DataScheduler.Services
         {
             try
             {
-                var getDirectory = string.Format("/{0}/Log/{1}/{2}", Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName
+                var getDirectory = string.Format("{0}/Log/{1}/{2}", Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName
                                                                    , DateTime.Now.ToString("yyyy-MM-dd").Replace("-", "/")
                                                                    , type.GetDescription());
 

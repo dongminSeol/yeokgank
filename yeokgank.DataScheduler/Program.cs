@@ -18,7 +18,7 @@ namespace yeokgank.DataScheduler
             apt.Settings.PageNo = 1;
             apt.Settings.Rows = 1000;
             ///조회 시작 yyyyMM
-            apt.Settings.StartDate = "202101";
+            apt.Settings.StartDate = "202107";
             ///조회 끝   yyyyMM
             apt.Settings.EndDate = "202110";
             apt.GetTrade();

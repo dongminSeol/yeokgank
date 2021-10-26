@@ -17,7 +17,7 @@ namespace yeokgank.DataScheduler.Data
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("{ConnectionStr}");
+            optionsBuilder.UseSqlServer("{}");
         }
     }
 }
