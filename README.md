@@ -4,5 +4,5 @@
   - 지역코드 DB 수집
   - 지역코드 React 게시판 생성 페이징 처리
   - 아파트 실거래 상세 자료 데이터 수집 [DataScheduler 진행 중]
-  - [Database Script] (https://github.com/dongminSeol/yeokgank/blob/master/yeokgank/DatabaseScript/ServiceDB.sql)
+  - [Database Script](https://github.com/dongminSeol/yeokgank/blob/master/yeokgank/DatabaseScript/ServiceDB.sql)
 
