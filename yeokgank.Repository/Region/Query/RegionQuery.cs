@@ -35,7 +35,7 @@ namespace yeokgank.Repository.Region.Query
                     param.Add("@PageSize", pagesize);
                     param.Add("@TotalCnt", DbType.Int32, direction: ParameterDirection.Output);
 
-                    var region = con.Query<RegionModel>("SP_Read_RegionCode", param, commandType: CommandType.StoredProcedure).ToList();
+                    var region = con.Query<RegionModel>("SP_ReadRegionCode", param, commandType: CommandType.StoredProcedure).ToList();
 
 
                     return new RegionViewModel

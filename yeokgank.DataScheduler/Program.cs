@@ -1,6 +1,7 @@
 ﻿using System;
 using yeokgank.DataScheduler.Services;
-
+using yeokgank.DataScheduler.Services.Apartments;
+using yeokgank.DataScheduler.Services.OpenDataApi;
 
 namespace yeokgank.DataScheduler
 {
@@ -13,16 +14,29 @@ namespace yeokgank.DataScheduler
         {
             Console.WriteLine("[Apartment-GetTrade]");
 
-            var apt = new Apartment();
-            apt.Settings.ServiceKey = "yYJxEdMlDi5LRTMt6bIVZHIlAlpETrET%2F9MxDD%2BQ5EQRpWiY0VT1LKsYi7TsKOIydh%2FBuMZpWM3ZG0ZJWmr34g%3D%3D";
-            apt.Settings.PageNo = 1;
-            apt.Settings.Rows = 1000;
-            ///조회 시작 yyyyMM
-            apt.Settings.StartDate = "202107";
-            ///조회 끝   yyyyMM
-            apt.Settings.EndDate = "202110";
-            apt.GetTrade();
-            Console.WriteLine($" {apt.Settings.StartDate} ~ {apt.Settings.EndDate} 실거래 상세 자료 수집 처리 카운트 : {apt.Volume}");
+
+            string serviceKey = "yYJxEdMlDi5LRTMt6bIVZHIlAlpETrET%2F9MxDD%2BQ5EQRpWiY0VT1LKsYi7TsKOIydh%2FBuMZpWM3ZG0ZJWmr34g%3D%3D";
+
+            /// [국토교통부_아파트매매 실거래 상세 자료]
+            var tradeSet = new Settings { ServiceKey = serviceKey
+                                        , PageNo = 1
+                                        , Rows = 1000
+                                        , StartDate = "202101"
+                                        , EndDate   = "202110" };
+            OpenDataCreator.ApartmentTradeInfo(tradeSet).Execute();
+
+            /// [국토교통부_공동주택 단지 목록제공 - 시군구 아파트 목록]
+            var sigunguSet = new Settings { ServiceKey = serviceKey };
+            OpenDataCreator.ApartmentSigunguInfo(sigunguSet).Execute();
+
+            /// [국토교통부_아파트 기본정보 조회]
+            var basicinfoSet = new Settings { ServiceKey = serviceKey };
+            OpenDataCreator.ApartmentBasicInfo(basicinfoSet).Execute();
+
+            /// [국토교통부_아파트 상세정보 조회]
+            var detailinfoSet = new Settings { ServiceKey = serviceKey };
+            OpenDataCreator.ApartmentDetailInfo(detailinfoSet).Execute();
+
 
             Console.ReadLine();
 
