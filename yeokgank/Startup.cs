@@ -45,11 +45,11 @@ namespace yeokgank
             });
 
             ///[테스트 주석]
-            // 프로덕션에서 React 파일은 이 디렉토리에서 제공됩니다.
-            //services.AddSpaStaticFiles(configuration =>
-            //{
-            //    configuration.RootPath = "ClientApp/build";
-            //});
+            ///프로덕션에서 React 파일은 이 디렉토리에서 제공됩니다.
+            services.AddSpaStaticFiles(configuration =>
+            {
+                configuration.RootPath = "ClientApp/build";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,44 +70,43 @@ namespace yeokgank
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
-            // Localization
-            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
-            app.UseRouting();
-            app.UseAuthorization();
-            // Enabling Session
-            app.UseSession();
+            //// Localization
+            //app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+            //app.UseAuthorization();
+            //// Enabling Session
+            //app.UseSession();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute("areas", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Portal}/{action=Login}/{id?}");
-            });
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapControllerRoute("areas", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller=Portal}/{action=Login}/{id?}");
+            //});
 
 
 
             ///[테스트 주석]
-            //app.UseSpaStaticFiles();
-            //app.UseRouting();
+            app.UseSpaStaticFiles();
+            app.UseRouting();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllerRoute(
-            //        name: "default",
-            //        pattern: "{controller}/{action=Index}/{id?}");
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action=Index}/{id?}");
+            });
 
-            /////[테스트 주석]
-            //app.UseSpa(spa =>
-            //{
-            //    spa.Options.SourcePath = "ClientApp";
+            ///[테스트 주석]
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ClientApp";
 
-            //    if (env.IsDevelopment())
-            //    {
-            //        spa.UseReactDevelopmentServer(npmScript: "start");
-            //    }
-            //});
+                if (env.IsDevelopment())
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                }
+            });
         }
     }
 }

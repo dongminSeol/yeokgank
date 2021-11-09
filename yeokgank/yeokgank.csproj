@@ -35,8 +35,6 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\actions\index.ts" />
-    <TypeScriptCompile Include="ClientApp\src\actions\tap-actions.ts" />
-    <TypeScriptCompile Include="ClientApp\src\actions\types.ts" />
   </ItemGroup>
 
   <ItemGroup>

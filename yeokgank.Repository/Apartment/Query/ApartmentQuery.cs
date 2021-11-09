@@ -26,10 +26,10 @@ namespace yeokgank.Repository.Apartment.Query
                 try
                 {
                     var param = new DynamicParameters();
-                    param.Add("@AD_H_CD", ad_h_cd);
-                    param.Add("@AD_M_CD", ad_m_cd);
-                    param.Add("@STARTDATE", startdate);
-                    param.Add("@ENDDATE", enddate);
+                    param.Add("@AD_H_CD", ad_h_cd ?? "11" );
+                    param.Add("@AD_M_CD", ad_m_cd ?? "000");
+                    param.Add("@STARTDATE", startdate ?? DateTime.Now.AddDays(-7).ToString("yyyyMMdd"));
+                    param.Add("@ENDDATE", enddate ?? DateTime.Now.AddDays(-1).ToString("yyyyMMdd"));
                     var trade = con.Query<ApartmentTradeModel>("SP_ReadTradeMonth", param, commandType: CommandType.StoredProcedure).ToList();
 
                     return new ApartmentTradeViewModel

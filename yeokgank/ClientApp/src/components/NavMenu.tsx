@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import './NavMenu.css';
 
 export default class NavMenu extends React.PureComponent<{}, { isOpen: boolean }> {
     public state = {
@@ -18,20 +17,15 @@ export default class NavMenu extends React.PureComponent<{}, { isOpen: boolean }
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={this.state.isOpen} navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/">홈</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/counter">Counter이벤트</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/apt">거래현황</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/apt">아파트</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/region">지역코드</NavLink>
                                 </NavItem>
-                                <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/region-data" >지역코드</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/fetch-data">데이터요청테스트</NavLink>
-                                </NavItem>
+                 
                             </ul>
                         </Collapse>
                     </Container>

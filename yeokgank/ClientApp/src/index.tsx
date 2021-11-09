@@ -9,11 +9,12 @@ import configureStore from './store/configureStore';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+// Redux 저장소에서 사용할 브라우저 기록.
 // Create browser history to use in the Redux store
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href') as string;
 const history = createBrowserHistory({ basename: baseUrl });
 
-// Get the application-wide store instance, prepopulating with state from the server where available.
+// 전체 저장소 인스턴스를 가져옵니다.
 const store = configureStore(history);
 
 ReactDOM.render(

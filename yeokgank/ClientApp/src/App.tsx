@@ -2,21 +2,18 @@ import * as React from 'react';
 import { Route } from 'react-router';
 import Layout from './components/Layout';
 import Home from './components/Home';
-import Counter from './components/Counter';
-import FetchData from './components/FetchData';
-import Region from './components/Region';
-import Apt from './components/Apt'
+import TradeInfoPage from './components/TradeInfoPage';
+import RegionCodePage from './components/RegionCodePage';
 
 
-import './custom.css'
+import './index.css'
 
 export default () => (
     <Layout>
         {/*exact : 디폴드 경로 */}
         <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/apt' component={Apt} />
-        <Route path='/region-data/:pageIndex?' component={Region} />
-        <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
+        <Route path='/apt' component={TradeInfoPage} />
+        <Route path='/region' component={RegionCodePage} />
+        {/* <Route path='/region-data/:pageIndex?' component={Region} /> */}
     </Layout>
 );
