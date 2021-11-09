@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Apartment\Command\" />
-    <Folder Include="Maps\Command\" />
     <Folder Include="Region\Command\" />
   </ItemGroup>
 

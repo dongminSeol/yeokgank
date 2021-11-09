@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using yeokgank.Entities.UserMaster;
+
+namespace yeokgank.Repository.Usermaster.Command
+{
+    public class UserMasterCommand : IUserMasterCommand
+    {
+
+        private readonly yeokgankDbContext _dbContext;
+
+
+        public UserMasterCommand(yeokgankDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+        public void Add(UserMaster usermaster)
+        {
+            _dbContext.UserMasters.Add(usermaster);
+        }
+
+        public void Update(UserMaster usermaster)
+        {
+            _dbContext.UserMasters.Update(usermaster);
+        }
+    }
+}
