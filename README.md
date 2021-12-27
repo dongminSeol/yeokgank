@@ -1,6 +1,7 @@
 **Notes**
 
-- [react + redux + typescript +.net core  (진행 ..)]
+- [아파트 실거래가 데이터 정보 수집]
+- [react + redux + typescript +.net core ]
 - - [Database Script](https://github.com/dongminSeol/yeokgank/blob/master/yeokgank/DatabaseScript/ServiceDB.sql)
 - - [Client](https://github.com/dongminSeol/yeokgank/tree/master/yeokgank/ClientApp)
   - 지역코드 데이터 수집
