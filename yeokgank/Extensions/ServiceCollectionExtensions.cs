@@ -10,9 +10,9 @@ namespace yeokgank.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             // (시,군,구,동) 정보
-            services.AddScoped<IRegionQuery, RegionQuery>();
+            services.AddScoped<IRegionQueries, RegionQueries>();
             //월별 (시,구) 아파트 실거래 거래량
-            services.AddScoped<IApartmentQuery, ApartmentQuery>();
+            services.AddScoped<IApartmentQueries, ApartmentQueries>();
             return services;
         }
     }

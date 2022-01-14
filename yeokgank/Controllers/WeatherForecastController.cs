@@ -21,9 +21,9 @@ namespace yeokgank.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly IRegionQuery _regionQuery;
+        private readonly IRegionQueries _regionQuery;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IRegionQuery regionQuery)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IRegionQueries regionQuery)
         {
             _logger = logger;
             _regionQuery = regionQuery;

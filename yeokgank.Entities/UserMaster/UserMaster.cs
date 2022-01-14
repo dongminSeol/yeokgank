@@ -1,8 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace yeokgank.Entities.UserMaster
 {
+    [Table("Usermaster")]
     public class UserMaster
     {
         [Key]

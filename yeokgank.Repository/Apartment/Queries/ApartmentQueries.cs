@@ -11,11 +11,11 @@ using System;
 
 namespace yeokgank.Repository.Apartment.Query
 {
-    public class ApartmentQuery : IApartmentQuery
+    public class ApartmentQueries : IApartmentQueries
     {
         private readonly IConfiguration _configuration;
 
-        public ApartmentQuery(IConfiguration configuration)
+        public ApartmentQueries(IConfiguration configuration)
         {
             _configuration = configuration;
         }

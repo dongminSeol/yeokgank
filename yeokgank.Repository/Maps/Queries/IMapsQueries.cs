@@ -6,7 +6,7 @@ using yeokgank.ViewModel.Maps;
 
 namespace yeokgank.Repository.Maps.Query
 {
-    public interface IMapsQuery
+    public interface IMapsQueries
     {
         List<MapsViewModel> List(string search ="");
 

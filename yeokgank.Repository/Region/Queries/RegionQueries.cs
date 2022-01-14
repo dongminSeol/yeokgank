@@ -10,11 +10,11 @@ using yeokgank.ViewModel.Region;
 
 namespace yeokgank.Repository.Region.Query
 {
-    public class RegionQuery : IRegionQuery
+    public class RegionQueries : IRegionQueries
     {
         private readonly IConfiguration _configuration;
 
-        public RegionQuery(IConfiguration configuration)
+        public RegionQueries(IConfiguration configuration)
         {
             _configuration = configuration;
         }

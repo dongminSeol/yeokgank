@@ -8,8 +8,8 @@ namespace yeokgank.Controllers
     public class RegionController : ControllerBase
     {
         private readonly ILogger<RegionController> _logger;
-        private readonly IRegionQuery _regionQuery;
-        public RegionController(ILogger<RegionController> logger, IRegionQuery regionQuery)
+        private readonly IRegionQueries _regionQuery;
+        public RegionController(ILogger<RegionController> logger, IRegionQueries regionQuery)
         {
             _logger = logger;
             _regionQuery = regionQuery;

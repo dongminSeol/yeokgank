@@ -9,8 +9,8 @@ namespace yeokgank.Controllers
     public class TradeController : ControllerBase
     {
         private readonly ILogger<TradeController> _logger;
-        private readonly IApartmentQuery _apartmentQuery;
-        public TradeController(ILogger<TradeController> logger, IApartmentQuery apartmentQuery) 
+        private readonly IApartmentQueries _apartmentQuery;
+        public TradeController(ILogger<TradeController> logger, IApartmentQueries apartmentQuery) 
         {
             _logger = logger;
             _apartmentQuery = apartmentQuery;

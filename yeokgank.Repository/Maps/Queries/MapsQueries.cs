@@ -8,11 +8,11 @@ using Microsoft.Extensions.Configuration;
 
 namespace yeokgank.Repository.Maps.Query
 {
-    public class MapsQuery : IMapsQuery
+    public class MapsQueries : IMapsQueries
     {
         private readonly IConfiguration _configuration;
 
-        public MapsQuery(IConfiguration configuration) 
+        public MapsQueries(IConfiguration configuration) 
         {
             _configuration = configuration;
         }
