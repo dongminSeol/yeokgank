@@ -1,6 +1,6 @@
 **Notes**
 
-- [아파트 실거래가 데이터 정보 수집]
+- [아파트 실거래가 데이터 정보 수집 작업 중..]
 - [react + redux + typescript +.net core ]
 - - [Database Script](https://github.com/dongminSeol/yeokgank/blob/master/yeokgank/DatabaseScript/ServiceDB.sql)
 - - [Client](https://github.com/dongminSeol/yeokgank/tree/master/yeokgank/ClientApp)
