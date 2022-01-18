@@ -1,52 +1,31 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using yeokgank.DataScheduler.Extensions;
-using yeokgank.DataScheduler.Http;
+using yeokgank.DataScheduler.Services.Apartments;
 
 namespace yeokgank.DataScheduler.Services
 {
-    public abstract class OpenData
+    public abstract class OpenData<T>
     {
         public enum FileType
         {
             [Description("Success")] Success,
             [Description("Error")] Error
         }
-        public int resultCount;
-        public int ResultCount()
-        {
-            return resultCount;
-        }
+        protected List<T> ErrorInfo { get; set; }
+        protected Settings Settings { get; set; }
+        protected int ResultCount { get; set; }
+ 
         public abstract bool Execute();
-        public abstract bool Add(dynamic data);
+        public abstract bool Add(T data);
         public abstract bool Delete();
         public abstract bool Update();
         public abstract void Read();
         public abstract void ErrorLog();
-        public T Request<T>(string url)
-        {
-            try
-            {
-                var http = new HttpConnecter(url);
-                var content = http.Get<T>();
-
-                if (content == null)
-                {
-                    throw new Exception("Process Error. [GetTrade]");
-
-                }
-                return content;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Process Error. {e.GetFullMessage()} [GetTrade]");
-                return default(T);
-            }
-        }
         public void Log(FileType type, string msg, string name)
         {
             try

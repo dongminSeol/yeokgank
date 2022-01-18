@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using yeokgank.Entities.UserMaster;
+﻿using yeokgank.Entities.UserMaster;
 
 namespace yeokgank.Repository.Usermaster.Command
 {

@@ -1,10 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using yeokgank.DataScheduler.Data;
@@ -16,25 +13,20 @@ using yeokgank.Entities.Region;
 
 namespace yeokgank.DataScheduler.Services.Apartments
 {
-    public class ApartmentTradeInfo : OpenData
+    public class ApartmentTradeInfo : OpenData<ApartmentTradeData>
     {
-        public Settings Settings { get; set; }
-        public List<TradeData> ErrorInfo { get; set; }
         public ApartmentTradeInfo(Settings _settings)
         {
             Settings =  _settings;
-            ErrorInfo = new List<TradeData>();
         }
 
-        public override bool Add (dynamic data)
+        public override bool Add (ApartmentTradeData data)
         {
             try
             {
-                var tradeData = (TradeData)data;
-
                 using (var context = new ConsoleAppDbContext())
                 {
-                    foreach (var i in tradeData.response.body.items.item)
+                    foreach (var i in data.response.body.items.item)
                     {
                         //Console.WriteLine($"{regionalName} {i.월.Trim()}월{i.일.Trim()}일 {i.층.Trim()}층  {i.아파트.Trim()} {i.거래금액.Trim()} 전용{i.전용면적}");
                         context.ApartmentTrade.Add(new ApartmentTrade
@@ -69,7 +61,7 @@ namespace yeokgank.DataScheduler.Services.Apartments
                             State = "N",
                             RegDate = DateTime.Now.ToString("yyyyMMddHHmmss")
                         });
-                        resultCount++;
+                        ResultCount++;
                     }
 
                     context.SaveChanges();
@@ -78,7 +70,7 @@ namespace yeokgank.DataScheduler.Services.Apartments
             }
             catch (Exception e)
             {
-                //ErrorData.Add(tradeData);
+                ErrorInfo.Add(data);
                 Console.WriteLine(e.GetFullMessage());
                 return false;
             }
@@ -106,7 +98,9 @@ namespace yeokgank.DataScheduler.Services.Apartments
                     foreach (var r in regcode)
                     {
                         var url = GetEndPoint((r.AD_H_CD + r.AD_M_CD), servicekey, month, pageno, rows);
-                        var tradeData = Request<TradeData>(url);
+
+                        var http = new HttpConnecter(url);
+                        var tradeData = http.Get<ApartmentTradeData>();
 
                         if (tradeData != null)
                         {
@@ -122,6 +116,10 @@ namespace yeokgank.DataScheduler.Services.Apartments
                                     Log(FileType.Success, JsonConvert.SerializeObject(tradeData, Formatting.Indented), fileName);
                                 }
                             }
+                        }
+                        else
+                        {
+                            throw new Exception("Process Error. [GetTrade]");
                         }
 
                     }
@@ -139,9 +137,7 @@ namespace yeokgank.DataScheduler.Services.Apartments
                 throw;
             }
 
-
-
-            throw new NotImplementedException();
+            return true;
         }
 
         public override void Read()

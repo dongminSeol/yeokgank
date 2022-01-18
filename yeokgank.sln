@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yeokgank.Entities", "yeokga
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yeokgank.DataScheduler", "yeokgank.DataScheduler\yeokgank.DataScheduler.csproj", "{499B0910-1FBE-43DD-A3F0-3ECF0204D9E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "yeokgank.Services", "yeokgank.Services\yeokgank.Services.csproj", "{55C425BF-0A75-42A5-9CA8-8F35BE3B4325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "yeokgank.Services", "yeokgank.Services\yeokgank.Services.csproj", "{55C425BF-0A75-42A5-9CA8-8F35BE3B4325}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseScript", "DatabaseScript", "{1379DB11-2F1D-424F-9D1E-E9A7E32CC575}"
+	ProjectSection(SolutionItems) = preProject
+		ServiceDB.sql = ServiceDB.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

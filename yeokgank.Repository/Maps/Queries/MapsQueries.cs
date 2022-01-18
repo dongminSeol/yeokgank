@@ -21,9 +21,9 @@ namespace yeokgank.Repository.Maps.Query
         {
             using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("DatabaseConnection")))
             {
-                var para = new DynamicParameters();
-                para.Add("@", search);
-                var data = con.Query<MapsViewModel>("", para, commandType: CommandType.StoredProcedure).ToList();
+                var param = new DynamicParameters();
+                param.Add("@", search);
+                var data = con.Query<MapsViewModel>("", param, commandType: CommandType.StoredProcedure).ToList();
 
                 return data;
             }

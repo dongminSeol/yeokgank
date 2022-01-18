@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Linq;
+﻿using System.Linq;
 
 namespace yeokgank.Repository.Usermaster.Queries
 {
-    public class UserMasterQueries
+    public class UserMasterQueries : IUserMasterQueries
     {
         private readonly yeokgankDbContext _yeokgankDbContext;
         public UserMasterQueries(yeokgankDbContext yeokgankDbContext)

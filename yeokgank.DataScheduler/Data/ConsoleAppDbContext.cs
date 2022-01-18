@@ -8,16 +8,18 @@ namespace yeokgank.DataScheduler.Data
     public class ConsoleAppDbContext : DbContext
     {
         public DbSet<ApartmentTrade> ApartmentTrade { get; set; }
+        public DbSet<ApartmentList> ApartmentList { get; set; }
         public DbSet<RegionCode> RegionCode { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
             modelBuilder.Entity<ApartmentTrade>().HasKey(c => new { c.TradeCode});
+            modelBuilder.Entity<ApartmentList>().HasKey(c => new { c.KaptCode });
             modelBuilder.Entity<RegionCode>().HasKey(c => new { c.Seq });
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("{}");
+            optionsBuilder.UseSqlServer("");
         }
     }
 }

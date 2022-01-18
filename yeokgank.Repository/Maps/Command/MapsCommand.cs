@@ -4,7 +4,7 @@ using System.Text;
 
 namespace yeokgank.Repository.Maps.Command
 {
-    class MapsCommand
+    public class MapsCommand
     {
     }
 }

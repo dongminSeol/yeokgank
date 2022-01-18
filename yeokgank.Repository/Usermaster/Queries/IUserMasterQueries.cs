@@ -4,7 +4,10 @@ using System.Text;
 
 namespace yeokgank.Repository.Usermaster.Queries
 {
-    interface IUserMasterQueries
+    public interface IUserMasterQueries
     {
+        bool CheckUserExists(string username);
+        bool CheckMailExists(string username);
+
     }
 }

@@ -23,19 +23,21 @@ namespace yeokgank.DataScheduler
                                         , Rows = 1000
                                         , StartDate = "202101"
                                         , EndDate   = "202110" };
-            OpenDataCreator.ApartmentTradeInfo(tradeSet).Execute();
+            //OpenDataCreator.ApartmentTradeInfo(tradeSet).Execute();
 
-            /// [국토교통부_공동주택 단지 목록제공 - 시군구 아파트 목록]
-            var sigunguSet = new Settings { ServiceKey = serviceKey };
-            OpenDataCreator.ApartmentSigunguInfo(sigunguSet).Execute();
+            /// [국토교통부_공동주택 단지 목록제공 - 시군구 아파트 목록 수집 처리]
+            var sigunguSet = new Settings { ServiceKey = serviceKey
+                                           ,PageNo = 1
+                                           ,Rows = 1000 };
+            OpenDataCreator.ApartmentListInfo(sigunguSet).Execute();
 
             /// [국토교통부_아파트 기본정보 조회]
-            var basicinfoSet = new Settings { ServiceKey = serviceKey };
-            OpenDataCreator.ApartmentBasicInfo(basicinfoSet).Execute();
+            //var basicinfoSet = new Settings { ServiceKey = serviceKey };
+            //OpenDataCreator.ApartmentBasicInfo(basicinfoSet).Execute();
 
             /// [국토교통부_아파트 상세정보 조회]
-            var detailinfoSet = new Settings { ServiceKey = serviceKey };
-            OpenDataCreator.ApartmentDetailInfo(detailinfoSet).Execute();
+            //var detailinfoSet = new Settings { ServiceKey = serviceKey };
+            //OpenDataCreator.ApartmentDetailInfo(detailinfoSet).Execute();
 
 
             Console.ReadLine();
