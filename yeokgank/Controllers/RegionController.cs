@@ -8,18 +8,18 @@ namespace yeokgank.Controllers
     public class RegionController : ControllerBase
     {
         private readonly ILogger<RegionController> _logger;
-        private readonly IRegionQueries _regionQuery;
-        public RegionController(ILogger<RegionController> logger, IRegionQueries regionQuery)
+        private readonly IRegionQueries _regionQueries;
+        public RegionController(ILogger<RegionController> logger, IRegionQueries regionQueries)
         {
             _logger = logger;
-            _regionQuery = regionQuery;
+            _regionQueries = regionQueries;
         }
 
         [HttpGet]
         public IActionResult List(string h_cd, string m_cd, string s_cd, string t_cd, int? page = 1 ,int? size = 10)
         {
              
-            var data = _regionQuery.List(h_cd, m_cd, s_cd, t_cd, page, size);
+            var data = _regionQueries.List(h_cd, m_cd, s_cd, t_cd, page, size);
 
             //_logger.LogInformation();
             //_logger.LogDebug(JsonResult)

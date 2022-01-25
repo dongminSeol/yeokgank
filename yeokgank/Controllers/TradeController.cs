@@ -9,17 +9,17 @@ namespace yeokgank.Controllers
     public class TradeController : ControllerBase
     {
         private readonly ILogger<TradeController> _logger;
-        private readonly IApartmentQueries _apartmentQuery;
-        public TradeController(ILogger<TradeController> logger, IApartmentQueries apartmentQuery) 
+        private readonly IApartmentQueries _apartmentQueries;
+        public TradeController(ILogger<TradeController> logger, IApartmentQueries apartmentQueries) 
         {
             _logger = logger;
-            _apartmentQuery = apartmentQuery;
+            _apartmentQueries = apartmentQueries;
         }
 
         [HttpGet]
         public IActionResult Month(string h_cd, string m_cd,string s_date, string e_date)
         {
-            var data = _apartmentQuery.TradeMonth(h_cd, m_cd, s_date, e_date);
+            var data = _apartmentQueries.TradeMonth(h_cd, m_cd, s_date, e_date);
             return Ok(data);
         }
 

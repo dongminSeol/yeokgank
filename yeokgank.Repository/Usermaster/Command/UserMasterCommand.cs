@@ -1,5 +1,5 @@
 ﻿using yeokgank.Entities.UserMaster;
-
+using Microsoft.EntityFrameworkCore;
 namespace yeokgank.Repository.Usermaster.Command
 {
     public class UserMasterCommand : IUserMasterCommand
@@ -19,7 +19,8 @@ namespace yeokgank.Repository.Usermaster.Command
 
         public void Update(UserMaster usermaster)
         {
-            _dbContext.UserMasters.Update(usermaster);
+            //_dbContext.UserMasters.Update(usermaster);
+            _dbContext.Entry(usermaster).State = EntityState.Modified;
         }
     }
 }
